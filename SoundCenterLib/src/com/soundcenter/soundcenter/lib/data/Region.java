@@ -1,5 +1,7 @@
 package com.soundcenter.soundcenter.lib.data;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class Region implements Station, Serializable {
 	private String owner = null;
 	private String name = null;
 	private byte priority = 1;
+	private byte maxVolume = 100;
 	private boolean editableByOthers = false;
 	private int fadeout = 0;
 	private boolean radio = false;
@@ -55,6 +58,11 @@ public class Region implements Station, Serializable {
 	public byte getPriority() { return priority; }
 	@Override
 	public void setPriority(byte priority) { this.priority = priority; }
+	
+	@Override
+	public byte getMaxVolume() { return maxVolume; }
+	@Override
+	public void setMaxVolume(byte maxVol) { this.maxVolume = maxVolume; }
 	
 	@Override
 	public boolean isEditableByOthers() { return editableByOthers; }
@@ -99,4 +107,13 @@ public class Region implements Station, Serializable {
 	public SCLocation getLocation() { return null; }
 	@Override
 	public String getWorld() { return null; }
+	
+	
+	/* we need to set default values for new variables, which aren't defined in the serialized object */
+	private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+	    ois.defaultReadObject();
+	    if (maxVolume == 0) {
+	    	maxVolume = 100;
+	    }
+	}
 }

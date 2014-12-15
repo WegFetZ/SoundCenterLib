@@ -29,6 +29,9 @@ public interface Station {
 	public byte getPriority();
 	public void setPriority(byte value);
 	
+	public byte getMaxVolume();
+	public void setMaxVolume(byte value);
+	
 	public boolean isEditableByOthers();
 	public void setEditableByOthers(boolean value);
 	
@@ -43,12 +46,4 @@ public interface Station {
 	public void removeSong(String path);
 	public void removeSong(Song song);
 	public void removeAllSongs();
-	
-	
-	
-	
-	
-	
-	
-	
 }
