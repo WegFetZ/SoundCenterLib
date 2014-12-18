@@ -4,6 +4,9 @@ import java.util.List;
 
 public interface Station {
 
+	public boolean equals(Station station);
+	public int hashCode();
+	
 	public byte getType();
 	
 	public short getId();
