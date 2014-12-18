@@ -3,9 +3,6 @@ package com.soundcenter.soundcenter.lib.data;
 import java.util.List;
 
 public interface Station {
-
-	public boolean equals(Station station);
-	public int hashCode();
 	
 	public byte getType();
 	
@@ -21,6 +18,8 @@ public interface Station {
 	public SCLocation getMax();
 	
 	public SCLocation getMin();
+	
+	public List<SCLocation2D> getPoints();
 	
 	public SCLocation getLocation();
 	

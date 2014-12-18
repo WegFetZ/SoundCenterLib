@@ -33,15 +33,7 @@ public class Area implements Station, Serializable {
 		setCorners(c1, c2);
 		this.fadeout = fadeout;
 	}
-	
-	@Override
-	public boolean equals(Station station) {
-		return this.id == station.getId() && this.type == station.getType();
-	}
-	@Override 
-	public int hashCode() {
-		return (int) id/12+type;
-	}
+
 	
 	@Override
 	public byte getType() {
@@ -121,6 +113,8 @@ public class Area implements Station, Serializable {
 	public void setName(String name) {}
 	@Override
 	public SCLocation getLocation() { return null; }
+	@Override
+	public List<SCLocation2D> getPoints() { return null; }
 	
 	/* we need to set default values for new variables, which aren't defined in the serialized object */
 	private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
