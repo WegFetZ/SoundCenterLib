@@ -34,6 +34,14 @@ public class Area implements Station, Serializable {
 		this.fadeout = fadeout;
 	}
 	
+	@Override
+	public boolean equals(Station station) {
+		return this.id == station.getId() && this.type == station.getType();
+	}
+	@Override 
+	public int hashCode() {
+		return (int) id/12+type;
+	}
 	
 	@Override
 	public byte getType() {
@@ -70,7 +78,7 @@ public class Area implements Station, Serializable {
 	@Override
 	public byte getMaxVolume() { return maxVolume; }
 	@Override
-	public void setMaxVolume(byte maxVol) { this.maxVolume = maxVolume; }
+	public void setMaxVolume(byte maxVolume) { this.maxVolume = maxVolume; }
 
 	@Override
 	public boolean isEditableByOthers() { return editableByOthers; }

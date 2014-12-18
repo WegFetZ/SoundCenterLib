@@ -33,6 +33,15 @@ public class Region implements Station, Serializable {
 		this.name = name;
 		this.type = type;
 	}
+	
+	@Override
+	public boolean equals(Station station) {
+		return this.id == station.getId() && this.type == station.getType();
+	}
+	@Override 
+	public int hashCode() {
+		return (int) id/12+type;
+	}
 
 	@Override
 	public byte getType() {
@@ -62,7 +71,7 @@ public class Region implements Station, Serializable {
 	@Override
 	public byte getMaxVolume() { return maxVolume; }
 	@Override
-	public void setMaxVolume(byte maxVol) { this.maxVolume = maxVolume; }
+	public void setMaxVolume(byte maxVolume) { this.maxVolume = maxVolume; }
 	
 	@Override
 	public boolean isEditableByOthers() { return editableByOthers; }
