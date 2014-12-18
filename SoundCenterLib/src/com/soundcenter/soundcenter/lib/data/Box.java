@@ -34,16 +34,6 @@ public class Box implements Station, Serializable {
 		this.range = range;
 	}
 	
-	
-	@Override
-	public boolean equals(Station station) {
-		return this.id == station.getId() && this.type == station.getType();
-	}
-	@Override 
-	public int hashCode() {
-		return (int) id/12+type;
-	}
-	
 	@Override
 	public byte getType() {
 		return type;
@@ -117,6 +107,8 @@ public class Box implements Station, Serializable {
 	public SCLocation getMax() { return null; }
 	@Override
 	public SCLocation getMin() { return null; }
+	@Override
+	public List<SCLocation2D> getPoints() { return null; }
 	
 	
 	/* we need to set default values for new variables, which aren't defined in the serialized object */

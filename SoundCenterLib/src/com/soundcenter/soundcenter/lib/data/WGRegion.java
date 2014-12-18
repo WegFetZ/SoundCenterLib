@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Region implements Station, Serializable {
+public class WGRegion implements Station, Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1334755003605990427L;
+	private static final long serialVersionUID = 4655360206783598943L;
 	
-	private byte type = GlobalConstants.TYPE_BIOME;
+	private byte type = GlobalConstants.TYPE_WGREGION;
 	private short id = 0;
-	private String owner = null;
+	private SCLocation min = null;
+	private SCLocation max = null;
+	private List<SCLocation2D> points;
 	private String name = null;
+	private String owner = null;
 	private byte priority = 1;
 	private byte maxVolume = 100;
 	private boolean editableByOthers = false;
@@ -27,11 +27,13 @@ public class Region implements Station, Serializable {
 	private ConcurrentHashMap<String, Song> songs = new ConcurrentHashMap<String, Song>();
 	
 	
-	public Region(short id, String owner, String name, byte type) {
+	public WGRegion(short id, String owner, String name, SCLocation min, SCLocation max, List<SCLocation2D> points) {
 		this.id = id;
 		this.owner = owner;
 		this.name = name;
-		this.type = type;
+		this.min = min;
+		this.max = max;
+		this.points = points;
 	}
 
 	@Override
@@ -45,7 +47,20 @@ public class Region implements Station, Serializable {
 	public void setId(short id) { this.id = id; }
 	
 	@Override
-	public String getOwner() { return owner; }
+	public SCLocation getMin() { return min; }
+	public void setMin(SCLocation min) { this.min = min; }
+	
+	@Override
+	public SCLocation getMax() { return max; }
+	public void setMax(SCLocation max) { this.max = max; }
+	
+	public List<SCLocation2D> getPoints() { return points; }
+	public void setPoints(List<SCLocation2D> points) { this.points = points; }
+	
+	@Override
+	public String getWorld() { return max.getWorld(); }
+	
+	public String getOwner() { return owner;}
 	@Override
 	public void setOwner(String owner) { this.owner = owner; }
 	
@@ -98,17 +113,10 @@ public class Region implements Station, Serializable {
 	public List<Song> getSongs() { return new ArrayList<Song>(songs.values()); }
 
 	
-	/* not needed for biomes or worlds */
-	@Override
-	public SCLocation getMax() { return null; }
-	@Override
-	public SCLocation getMin() { return null; }
-	@Override
-	public List<SCLocation2D> getPoints() { return null; }
+	
+	/* not needed for wgregions */
 	@Override
 	public SCLocation getLocation() { return null; }
-	@Override
-	public String getWorld() { return null; }
 	
 	
 	/* we need to set default values for new variables, which aren't defined in the serialized object */

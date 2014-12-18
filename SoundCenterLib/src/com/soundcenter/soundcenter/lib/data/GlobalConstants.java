@@ -22,13 +22,14 @@ public class GlobalConstants {
 	public static final byte TYPE_BIOME = 2;
 	public static final byte TYPE_WORLD = 3;
 	public static final byte TYPE_GLOBAL = 4;
+	public static final byte TYPE_WGREGION = 5;
 
-	public static final byte TYPE_VOICE = 5;
+	public static final byte TYPE_VOICE = 6;
 	
 	/* MISC */
 	public static List<String> supportedExtensions = Arrays.asList("mp3", "midi", "mid");
 	public static final String[] permissions = {"sc.init", "sc.upload.mp3", "sc.upload.midi", 
-		"sc.set.area", "sc.set.box", "sc.set.biome", "sc.set.world", "sc.set.overlap", 
+		"sc.set.area", "sc.set.box", "sc.set.biome", "sc.set.world", "sc.set.wgregion", "sc.set.wgregion.nomember", "sc.set.overlap", 
 		"sc.play.global", "sc.speak", "sc.speak.global", 
 		"sc.others.use.songs", "sc.others.edit", "sc.others.delete", 
 		"sc.nolimits" };
