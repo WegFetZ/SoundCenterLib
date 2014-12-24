@@ -9,7 +9,7 @@ import com.soundcenter.soundcenter.lib.util.StringUtil;
 
 public class UdpPacket {
 	
-	public static final int HEADER_SIZE = 11;
+	public static final int HEADER_SIZE = 10;
 	
 	private byte[] data;
 	
@@ -76,14 +76,6 @@ public class UdpPacket {
 	
 	public byte getVolume() {
 		return data[9];
-	}
-	
-	public void setSongIndex(byte index) {
-		data[10] = index;
-	}
-	
-	public byte getSongIndex() {
-		return data[10];
 	}
 	
 	public void setStreamData(byte[] sData) {

@@ -37,15 +37,14 @@ public interface Station {
 	public boolean isEditableByOthers();
 	public void setEditableByOthers(boolean value);
 	
-	public boolean isRadio();
-	public void setRadio(boolean value);
-	
-	public String getRadioURL();
-	public void setRadioURL(String url);
-	
 	public List<Song> getSongs();
 	public void addSong(Song song);
-	public void removeSong(String path);
 	public void removeSong(Song song);
 	public void removeAllSongs();
+	
+	public boolean shouldStartFromBeginning();
+	public void setStartFromBeginning(boolean value);
+	
+	public boolean shouldLoop();
+	public void setLoop(boolean value);
 }

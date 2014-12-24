@@ -11,7 +11,7 @@ public class SCLocation implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6546901205093406033L;
+	private static final long serialVersionUID = 4L;
 
 	private double x;
 	private double y;

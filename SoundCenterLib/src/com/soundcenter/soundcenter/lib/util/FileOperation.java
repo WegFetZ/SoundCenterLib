@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -18,14 +19,20 @@ public class FileOperation {
 		out.close();
 	}
 	
-	public static Object loadObject(File file) throws IOException, ClassNotFoundException {
+	public static Object loadObject(File file) throws InvalidClassException, Exception{
 		if (!file.exists())
 			return null;
-		
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
-		Object object = in.readObject();
-		in.close();
-		return object;
+		ObjectInputStream in = null;
+		try {
+			in = new ObjectInputStream(new FileInputStream(file));
+			Object object = in.readObject();
+			in.close();
+			return object;
+		} catch (InvalidClassException e) {
+			if (in != null) 
+				in.close();
+			throw e;
+		}
 	}
 	
 	public static String getExtension(File file) {

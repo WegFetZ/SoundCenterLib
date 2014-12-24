@@ -1,29 +1,22 @@
 package com.soundcenter.soundcenter.lib.data;
 
-import java.io.File;
 import java.io.Serializable;
-import java.text.DecimalFormat;
 
 public class Song implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1052764580509872429L;
+
+	private static final long serialVersionUID = 4L;
 	private String owner = "";
 	private String title = "";
+	private String url = "";
+	private long duration = 0;
 	private long size = 0;
-	
-	public Song(String owner, String name, long size) {
+
+	public Song(String owner, String name, String url, long duration, long size) {
 		this.owner = owner;
 		this.title = name;
+		this.url = url;
+		this.duration = duration;
 		this.size = size;
-	}
-	
-	public Song(String owner, File file) {
-		this.owner = owner;
-		this.title = file.getName();
-		this.size = file.length();
 	}
 
 	public String getOwner() {
@@ -41,22 +34,40 @@ public class Song implements Serializable {
 	public void setTitle(String name) {
 		this.title = name;
 	}
-	
-	public String getPath() {
-		return owner + File.separator + title;
-	}
 
+	public String getUrl() {
+		return url;
+	}
+	
+	public long getDuration() {
+		return duration;
+	}
+	
 	public long getSize() {
 		return size;
 	}
 	
-	public String getMBSize() {
-		DecimalFormat df = new DecimalFormat("#.##");
-        return df.format((double) (size/(1024.0*1024.0))) + " MB";
-	}
-
-	public void setSize(long size) {
-		this.size = size;
+	@Override
+	public String toString() {
+		return owner + " - " + title + " (" + url + ")";
 	}
 	
+	@Override
+	public int hashCode() {
+		return 0;
+	}
+	@Override
+	public boolean equals(Object other) {
+		if (other == null) {
+			return false;
+		}
+		if (other == this) {
+			return true;
+		}
+		if (!(other instanceof Song)) {
+			return false;
+		}
+		Song otherSong = (Song) other;
+		return owner.equalsIgnoreCase(otherSong.getOwner()) && url.equalsIgnoreCase(otherSong.getUrl());
+	}
 }

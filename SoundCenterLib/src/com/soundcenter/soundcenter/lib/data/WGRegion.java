@@ -5,11 +5,10 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class WGRegion implements Station, Serializable {
 
-	private static final long serialVersionUID = 4655360206783598943L;
+	private static final long serialVersionUID = 4L;
 	
 	private byte type = GlobalConstants.TYPE_WGREGION;
 	private short id = 0;
@@ -21,10 +20,10 @@ public class WGRegion implements Station, Serializable {
 	private byte priority = 1;
 	private byte maxVolume = 100;
 	private boolean editableByOthers = false;
+	private boolean startFromBeginning = false;
+	private boolean loop = true;
 	private int fadeout = 0;
-	private boolean radio = false;
-	private String radioUrl = "";
-	private ConcurrentHashMap<String, Song> songs = new ConcurrentHashMap<String, Song>();
+	private List<Song> songs = new ArrayList<Song>();
 	
 	
 	public WGRegion(short id, String owner, String name, SCLocation min, SCLocation max, List<SCLocation2D> points) {
@@ -92,27 +91,23 @@ public class WGRegion implements Station, Serializable {
 	public void setRange(int fadeout) { this.fadeout = fadeout; }
 	
 	@Override
-	public boolean isRadio() { return radio; }
+	public void addSong(Song song) { songs.add(song); }
 	@Override
-	public void setRadio(boolean value) { this.radio = value; }
-	
-	@Override
-	public String getRadioURL() { return radioUrl; }
-	@Override
-	public void setRadioURL(String url) { this.radioUrl = url; }
-	
-	@Override
-	public void addSong(Song song) { songs.put(song.getPath(), song); }
-	@Override
-	public void removeSong(String path) { songs.remove(path); }
-	@Override
-	public void removeSong(Song song) { songs.remove(song.getPath()); }
+	public void removeSong(Song song) { songs.remove(song); }
 	@Override
 	public void removeAllSongs() { songs.clear(); }
 	@Override
-	public List<Song> getSongs() { return new ArrayList<Song>(songs.values()); }
+	public List<Song> getSongs() { return songs; }
 
+	public boolean shouldStartFromBeginning() {
+		return startFromBeginning;
+	}
+	public void setStartFromBeginning(boolean value) {
+		this.startFromBeginning = value;
+	}
 	
+	public boolean shouldLoop() { return loop; }
+	public void setLoop(boolean value) { this.loop = value;	}
 	
 	/* not needed for wgregions */
 	@Override

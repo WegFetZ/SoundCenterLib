@@ -28,7 +28,6 @@ public class TcpOpcodes {
 	public static final byte CL_INFODATA_START = 20;
 	public static final byte CL_INFODATA_AVAILABLE_BIOME = 21;
 	public static final byte CL_INFODATA_AVAILABLE_WORLD = 22;
-	public static final byte CL_INFODATA_SONG = 23;
 	public static final byte CL_INFODATA_PERMISSION = 24;
 	public static final byte CL_INFODATA_END = 25;
 	public static final byte CL_GROUP_END_INFODATA = 29;
@@ -36,35 +35,26 @@ public class TcpOpcodes {
 	// data
 	public static final byte CL_GROUP_DATA = 30;
 	public static final byte CL_DATA_STATION = 30;
-	public static final byte CL_DATA_SONG_CHUNK = 31;
-	public static final byte CL_DATA_CMD_DELETE_SONG = 32;
+	public static final byte CL_DATA_SONG = 31;
 	public static final byte CL_DATA_CMD_DELETE_STATION = 33;
-	public static final byte CL_DATA_SONG_TRANSFER_START = 34;
-	public static final byte CL_DATA_SONG_TRANSFER_END = 35;
-	public static final Byte CL_DATA_SONG_UPLOAD_START = 36;
-	public static final Byte CL_DATA_SONG_UPLOAD_DONE = 37;
+	public static final byte CL_DATA_CMD_DELETE_SONG = 34;
 	public static final byte CL_GROUP_END_DATA = 39;
 	
 	// commands
 	public static final byte CL_GROUP_CMD = 40;
 	public static final byte CL_CMD_START_RECORDING = 40;
 	public static final byte CL_CMD_STOP_RECORDING = 41;
-	public static final byte CL_CMD_PLAY_MIDI = 42;
-	public static final byte CL_CMD_CHANGE_VOLUME = 43;
-	public static final byte CL_CMD_MUTE_MUSIC = 44;
-	public static final byte CL_CMD_UNMUTE_MUSIC = 45;
-	public static final byte CL_CMD_MUTE_VOICE = 46;
-	public static final byte CL_CMD_UNMUTE_VOICE = 47;
+	public static final byte CL_CMD_CHANGE_VOLUME = 42;
+	public static final byte CL_CMD_MUTE_MUSIC = 43;
+	public static final byte CL_CMD_UNMUTE_MUSIC = 44;
+	public static final byte CL_CMD_MUTE_VOICE = 45;
+	public static final byte CL_CMD_UNMUTE_VOICE = 46;
+	public static final byte CL_CMD_PLAY_GLOBAL = 47;
 	public static final byte CL_CMD_STOP_GLOBAL = 48;
 	public static final byte CL_GROUP_END_CMD = 49;
 	
 	// errors
 	public static final byte CL_GROUP_ERR = 60;
-	public static final byte CL_ERR_UPLOAD_PERMISSION = 60;
-	public static final byte CL_ERR_UPLOAD_MAX_STORAGE = 61;
-	public static final byte CL_ERR_FILE_NOT_EXISTANT = 62;
-	public static final byte CL_ERR_STREAM_SERVER_LOAD = 63;
-	public static final byte CL_ERR_STREAM_NO_SONGS = 64;
 	public static final byte CL_ERR_PLAY_GLOBAL_PERMISSION = 65;
 	public static final byte CL_ERR_OTHERS_EDIT_PERMISSION = 66;
 	public static final byte CL_ERR_OTHERS_DELETE_PERMISSION = 67;
@@ -88,8 +78,6 @@ public class TcpOpcodes {
 	
 	//stream
 	public static final byte SV_GROUP_END_STREAM = -10;
-	public static final byte SV_STREAM_CMD_START = -11;
-	public static final byte SV_STREAM_CMD_STOP = -12;
 	public static final byte SV_STREAM_CMD_PLAY_GLOBAL = -13;
 	public static final byte SV_STREAM_CMD_STOP_GLOBAL = -14;
 	public static final byte SV_STREAM_CMD_MUTE_VOICE = -15;
@@ -99,7 +87,6 @@ public class TcpOpcodes {
 	// data
 	public static final byte SV_GROUP_END_DATA = -20;
 	public static final byte SV_DATA_REQ_INFODATA = -20;
-	public static final byte SV_DATA_REQ_SONG = -21;
 	public static final byte SV_DATA_STATION_AREA = -22;
 	public static final byte SV_DATA_STATION_BOX = -23;
 	public static final byte SV_DATA_STATION_BIOME = -24;
@@ -107,10 +94,8 @@ public class TcpOpcodes {
 	public static final byte SV_DATA_CMD_CREATE_STATION = -26;
 	public static final byte SV_DATA_CMD_EDIT_STATION = -27;
 	public static final byte SV_DATA_CMD_DELETE_STATION = -28;
-	public static final byte SV_DATA_CMD_RECEIVE_SONG = -29;
-	public static final byte SV_DATA_SONG_CHUNK = -30;
-	public static final byte SV_DATA_INFO_UPLOAD_ENDED = -31;
-	public static final byte SV_DATA_CMD_DELETE_SONG = -32;
+	public static final byte SV_DATA_CMD_ADD_SONG = -29;
+	public static final byte SV_DATA_CMD_DELETE_SONG = -30;
 	public static final byte SV_GROUP_DATA = -39;
 	
 }
