@@ -8,6 +8,7 @@ public class Song implements Serializable {
 	private String owner = "";
 	private String title = "";
 	private String url = "";
+	private String format = "";
 	private long duration = 0;
 	private long size = 0;
 
@@ -37,6 +38,13 @@ public class Song implements Serializable {
 
 	public String getUrl() {
 		return url;
+	}
+	
+	public String getFormat() {
+		return format;
+	}
+	public void setFormat(String format) {
+		this.format = format;
 	}
 	
 	public long getDuration() {
