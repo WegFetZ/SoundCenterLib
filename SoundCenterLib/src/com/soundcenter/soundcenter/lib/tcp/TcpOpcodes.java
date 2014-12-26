@@ -49,20 +49,21 @@ public class TcpOpcodes {
 	public static final byte CL_CMD_UNMUTE_MUSIC = 44;
 	public static final byte CL_CMD_MUTE_VOICE = 45;
 	public static final byte CL_CMD_UNMUTE_VOICE = 46;
-	public static final byte CL_CMD_PLAY_GLOBAL = 47;
-	public static final byte CL_CMD_STOP_GLOBAL = 48;
+	public static final byte CL_CMD_PLAY_SONG = 47;
+	public static final byte CL_CMD_STOP_SONG = 48;
 	public static final byte CL_GROUP_END_CMD = 49;
 	
 	// errors
 	public static final byte CL_GROUP_ERR = 60;
-	public static final byte CL_ERR_PLAY_GLOBAL_PERMISSION = 65;
+	public static final byte CL_ERR_PLAY_PERMISSION = 65;
 	public static final byte CL_ERR_OTHERS_EDIT_PERMISSION = 66;
 	public static final byte CL_ERR_OTHERS_DELETE_PERMISSION = 67;
 	public static final byte CL_ERR_EDIT_RANGE = 68;
 	public static final byte CL_ERR_CREATE_PERMISSION = 69;
 	public static final byte CL_ERR_ALREADY_EXISTS = 70;
-	public static final byte CL_ERR_NOT_INITIALIZED = 71;
-	public static final byte CL_ERR_UNKNOWN = 72;
+	public static final byte CL_ERR_NOT_EXISTS = 71;
+	public static final byte CL_ERR_NOT_INITIALIZED = 72;
+	public static final byte CL_ERR_UNKNOWN = 73;
 	public static final byte CL_GROUP_END_ERR = 79;
 	
 	
@@ -77,12 +78,12 @@ public class TcpOpcodes {
 	public static final byte SV_GROUP_CON = -5;	
 	
 	//stream
-	public static final byte SV_GROUP_END_STREAM = -10;
-	public static final byte SV_STREAM_CMD_PLAY_GLOBAL = -13;
-	public static final byte SV_STREAM_CMD_STOP_GLOBAL = -14;
-	public static final byte SV_STREAM_CMD_MUTE_VOICE = -15;
-	public static final byte SV_STREAM_CMD_UNMUTE_VOICE = -16;
-	public static final byte SV_GROUP_STREAM = -19;
+	public static final byte SV_GROUP_END_CMD = -10;
+	public static final byte SV_CMD_PLAY_SONG = -11;
+	public static final byte SV_CMD_STOP_SONG = -12;
+	public static final byte SV_CMD_MUTE_VOICE = -15;
+	public static final byte SV_CMD_UNMUTE_VOICE = -16;
+	public static final byte SV_GROUP_CMD = -19;
 
 	// data
 	public static final byte SV_GROUP_END_DATA = -20;

@@ -20,9 +20,8 @@ public class GlobalConstants {
 	public static final byte TYPE_BIOME = 2;
 	public static final byte TYPE_WORLD = 3;
 	public static final byte TYPE_WGREGION = 4;
-
-	public static final byte TYPE_SINGLE_SONG = 5;
-	public static final byte TYPE_VOICE = 6;
+	
+	public static final byte TYPE_VOICE = 5;
 	
 	/* MISC */
 	public static final String[] permissions = {"sc.init", "sc.add.song",
