@@ -76,6 +76,6 @@ public class Song implements Serializable {
 			return false;
 		}
 		Song otherSong = (Song) other;
-		return owner.equalsIgnoreCase(otherSong.getOwner()) && url.equalsIgnoreCase(otherSong.getUrl());
+		return title.equalsIgnoreCase(otherSong.getTitle());
 	}
 }
