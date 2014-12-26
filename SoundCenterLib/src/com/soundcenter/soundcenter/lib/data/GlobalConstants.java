@@ -19,15 +19,14 @@ public class GlobalConstants {
 	public static final byte TYPE_BOX = 1;
 	public static final byte TYPE_BIOME = 2;
 	public static final byte TYPE_WORLD = 3;
-	public static final byte TYPE_GLOBAL = 4;
-	public static final byte TYPE_WGREGION = 5;
+	public static final byte TYPE_WGREGION = 4;
 
+	public static final byte TYPE_SINGLE_SONG = 5;
 	public static final byte TYPE_VOICE = 6;
 	
 	/* MISC */
 	public static final String[] permissions = {"sc.init", "sc.add.song",
 		"sc.set.area", "sc.set.box", "sc.set.biome", "sc.set.world", "sc.set.wgregion", "sc.set.wgregion.nomember", "sc.set.overlap", 
-		"sc.play.global", "sc.speak", "sc.speak.global", 
-		"sc.others.use.songs", "sc.others.edit", "sc.others.delete", 
+		"sc.play.world", "sc.play.global", "sc.speak", "sc.speak.global", "sc.others.edit", "sc.others.delete", 
 		"sc.nolimits" };
 }
